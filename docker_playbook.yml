@@ -1,0 +1,20 @@
+---
+- name: Build and Run Docker Container
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Build Docker Image
+      docker_image:
+        name: abc-technologies
+        build:
+          dockerfile: Dockerfile
+          path: ./
+        source: build
+
+    - name: Run Docker Container
+      docker_container:
+        name: abc-technologies-container
+        image: abc-technologies
+        ports:
+          - "8081:8080"
