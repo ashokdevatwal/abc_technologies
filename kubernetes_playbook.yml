@@ -1,0 +1,9 @@
+- name: Deploy to Kubernetes
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: 'Apply Deployment, Service , Pod'
+      shell: |
+        kubectl apply -f /home/ubuntu/abc_technologies/kubernetes_deployment.yaml
+      no_log: false
+
